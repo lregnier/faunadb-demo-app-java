@@ -147,9 +147,9 @@ public abstract class FaunaRepository<T extends Entity> implements Repository<T>
             Select(
                 Value("data"),
                 If(
-                    Exists(Ref(Class(Value(className)), id)),
-                    Replace(Ref(Class(Value(className)), id), Obj("data", data)),
-                    Create(Ref(Class(Value(className)), id), Obj("data", data))
+                    Exists(Ref(Class(className), id)),
+                    Replace(Ref(Class(className), id), Obj("data", data)),
+                    Create(Ref(Class(className), id), Obj("data", data))
                 )
             );
 
