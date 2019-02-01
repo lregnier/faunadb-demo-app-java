@@ -87,15 +87,15 @@ Make sure to write down the given secret key. It will be used for starting up th
 
 ## Running the app
 
-For starting up the service you can use all `sbt` standard commands. If you don't have `sbt` installed, follow instructions [here](https://www.scala-sbt.org/download.html).
-
-Before runnning the service, make sure to include the API key created above as follows:
+For starting up the service, execute below command making sure sure to include a proper API key as follows:
 
 ```
-$ sbt run -Dfauna-db.secret=your_api_key_goes_here
+$ ./mvnw -Dfauna-db.secret=your_api_key_goes_here spring-boot:run
 ```
 
-The app will start by default at port `9000`.
+The app will start by default at port `8080`.
+
+> Note: the [Maven Wrapper](https://github.com/takari/maven-wrapper) has been added to the project which allows Maven commands to be executed out of the box. Altervaintely, you can use any other Maven installation of your choice.
 
 
 ## API Reference
@@ -124,7 +124,7 @@ Content-type: application/json
 $ curl -XPOST -H "Content-type: application/json" -d '{
   "title": "My cat and other marvels",
   "tags": ["pet", "cute"]
-}' 'http://localhost:9000/posts'
+}' 'http://localhost:8080/posts'
 ```
 
 #### Response
@@ -165,7 +165,7 @@ $ curl -XPOST -H "Content-type: application/json" -d '[
   {"title": "My cat and other marvels", "tags": ["pet", "cute"]},
   {"title": "Pondering during a commute", "tags": ["commuting"]},
   {"title": "Deep meanings in a latte", "tags": ["coffee"]}
-]' 'http://localhost:9000/posts'
+]' 'http://localhost:8080/posts'
 ```
 
 #### Response
@@ -206,7 +206,7 @@ GET /posts/{post_id}
 
 ##### curl example
 ```
-$ curl -XGET 'http://localhost:9000/posts/219871526709625348'
+$ curl -XGET 'http://localhost:8080/posts/219871526709625348'
 ```
 
 #### Response
@@ -235,7 +235,7 @@ GET /posts
 
 ##### curl example
 ```
-$ curl -XGET 'http://localhost:9000/posts'
+$ curl -XGET 'http://localhost:8080/posts'
 ```
 
 #### Response
@@ -289,7 +289,7 @@ Content-type: application/json
 ##### curl example
 
 ```
-$ curl -XGET 'http://localhost:9000/posts?title=My%20cat%20and%20other%20marvels'
+$ curl -XGET 'http://localhost:8080/posts?title=My%20cat%20and%20other%20marvels'
 ```
 
 ### Replace a Post
@@ -313,7 +313,7 @@ Content-type: application/json
 ```
 $ curl -XPUT -H "Content-type: application/json" -d '{
   "title": "My dog and other marvels"
-}' 'http://localhost:9000/posts/219871526709625348'
+}' 'http://localhost:8080/posts/219871526709625348'
 ```
 
 #### Response
@@ -346,7 +346,7 @@ DELETE /posts/{post_id}
 ##### curl example
 
 ```
-$ curl -XDELETE 'http://localhost:9000/posts/219871526709625348'
+$ curl -XDELETE 'http://localhost:8080/posts/219871526709625348'
 ```
 
 #### Response
