@@ -87,7 +87,7 @@ Make sure to write down the given secret key. It will be used for starting up th
 
 ## Running the app
 
-For starting up the service, execute below command making sure sure to include a proper API key as follows:
+For starting up the service, execute below command making sure to include a proper API key as follows:
 
 ```
 $ ./mvnw -Dfauna-db.secret=your_api_key_goes_here spring-boot:run
