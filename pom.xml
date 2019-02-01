@@ -32,8 +32,8 @@
 
 		<dependency>
 			<groupId>com.faunadb</groupId>
-			<artifactId>faunadb-android</artifactId>
-			<version>2.5.6</version>
+			<artifactId>faunadb-java</artifactId>
+			<version>2.6.0</version>
 			<scope>compile</scope>
 		</dependency>
 	</dependencies>
